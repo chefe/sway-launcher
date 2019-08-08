@@ -14,6 +14,8 @@ source=(
 
 prepare() {
     cp $srcdir/../sway-launcher $srcdir
+    cp $srcdir/../LICENSE $srcdir
+    cp $srcdir/../README.md $srcdir
 }
 
 build() {
@@ -33,4 +35,6 @@ package() {
   install -D "$srcdir/wldash-master/README.md" "$pkgdir/usr/share/doc/wldash/README"
 
   install -D "$srcdir/sway-launcher" "$pkgdir/usr/local/bin/sway-launcher"
+  install -D "$srcdir/LICENSE" "$pkgdir/usr/share/licenses/sway-launcher/LICENSE"
+  install -D "$srcdir/README.md" "$pkgdir/usr/share/doc/sway-launcher/README"
 }
