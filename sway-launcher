@@ -1,0 +1,13 @@
+#!/bin/sh
+
+selection="$(dot-desktop | wldash)"
+
+if [ "$selection" != "" ]; then
+    command_str="$(dot-desktop "${selection}")"
+
+    if [ "$?" -ne "0" ] || [ "$command_str" = "" ]; then
+        swaynag -m "invalid command!" &
+    else
+        swaymsg "exec $command_str"
+    fi
+fi
